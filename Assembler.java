@@ -51,9 +51,9 @@ class Assembler {
     }
     void passOne() {
         try {
-            FileReader fileReader = new FileReader("C:\\Users\\student\\IdeaProjects\\Assembler\\src\\input.txt");
+            FileReader fileReader = new FileReader("/home/student/Assembler/input.txt");
             BufferedReader bufferReader = new BufferedReader(fileReader);
-            FileWriter fileWriter = new FileWriter("C:\\Users\\student\\IdeaProjects\\Assembler\\src\\ic.txt");
+            FileWriter fileWriter = new FileWriter("ic.txt");
             BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
             int locationPointer = 0;
             int symbolTablePointer = 1;
@@ -146,7 +146,8 @@ class Assembler {
                         if (line.length > 2) {
 
                             switch (line[2]) {
-                                case "AREG" -> bufferWriter.write("1\t");
+
+                                case "AREG"-> bufferWriter.write("1\t");
                                 case "BREG" -> bufferWriter.write("2\t");
                                 case "CREG" -> bufferWriter.write("3\t");
                                 case "DREG" -> bufferWriter.write("4\t");
@@ -223,7 +224,7 @@ class Assembler {
             bufferWriter.close();
             bufferReader.close();
 
-            FileWriter symbolTableFile = new FileWriter("C:\\Users\\student\\IdeaProjects\\Assembler\\src\\.txt");
+            FileWriter symbolTableFile = new FileWriter("/home/student/Assembler/symbolTable.txt");
             BufferedWriter bufferSymbolTableWriter = new
                     BufferedWriter(symbolTableFile);
             System.out.println("------------- Symbol Table --------------");
@@ -234,7 +235,7 @@ class Assembler {
             }
             bufferSymbolTableWriter.close();
 
-            FileWriter literalTableFile = new FileWriter("C:\\Users\\student\\IdeaProjects\\Assembler\\src\\literalTable.txt");
+            FileWriter literalTableFile = new FileWriter("/home/student/Assembler/literalTable.txt");
             BufferedWriter bufferLiteralTableWriter = new
                     BufferedWriter(literalTableFile);
             System.out.println("------------- Literal Table --------------");
@@ -245,7 +246,7 @@ class Assembler {
             }
             bufferLiteralTableWriter.close();
 
-            FileWriter poolTableFile = new FileWriter("C:\\Users\\student\\IdeaProjects\\Assembler\\src\\poolTable.txt");
+            FileWriter poolTableFile = new FileWriter("/home/student/Assembler/poolTable.txt");
             BufferedWriter bufferPoolTableWriter = new BufferedWriter(poolTableFile);
             System.out.println("------------- Pool Table --------------");
             for (Integer integer : poolTable) {
@@ -260,10 +261,10 @@ class Assembler {
 
     void passTwo() {
         try {
-            FileWriter machineCodeFile = new FileWriter("C:\\Users\\student\\IdeaProjects\\Assembler\\src\\machineCode.txt");
+            FileWriter machineCodeFile = new FileWriter("/home/student/Assembler/machineCode.txt");
             BufferedWriter bufferMachineCodeWriter = new
                     BufferedWriter(machineCodeFile);
-            FileReader intermediateCodeFile = new FileReader("C:\\Users\\student\\IdeaProjects\\Assembler\\src\\ic.txt");
+            FileReader intermediateCodeFile = new FileReader("ic.txt");
             BufferedReader bufferIntermediateFileReader = new
                     BufferedReader(intermediateCodeFile);
             String currentLine = bufferIntermediateFileReader.readLine();
@@ -298,7 +299,7 @@ class Assembler {
             }
             bufferIntermediateFileReader.close();
             bufferMachineCodeWriter.close();
-            FileReader machineCodeFileReader = new FileReader("C:\\Users\\student\\IdeaProjects\\Assembler\\src\\machineCode.txt");
+            FileReader machineCodeFileReader = new FileReader("/home/student/Assembler/machineCode.txt");
             BufferedReader bufferMachineCodeReader = new
                     BufferedReader(machineCodeFileReader);
             System.out.println("--------- Machine Code ----------");
